@@ -5,6 +5,8 @@ import PetfulContext from './PetfulContext';
 import Adoption from './Adoption';
 import { Switch, Route } from 'react-router-dom';
 import AdoptSuccess from './AdoptSuccess';
+import './App.css'
+
 
 class App extends Component {
 

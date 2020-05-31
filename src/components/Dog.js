@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PetFulContext from './PetfulContext'
+import './Dog.css';
 
 export default class Dog extends Component {
 

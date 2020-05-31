@@ -3,6 +3,7 @@ import PetfulContext from './PetfulContext';
 import AdoptForm from './AdoptForm';
 import Dog from './Dog';
 import Cat from './Cat';
+import './Adoption.css';
 
 
 
@@ -92,9 +93,12 @@ export default class Adoption extends Component {
         // console.log(this.context.cats)
         console.log(this.context.people)
         return (
-            <div>
-                <h1>Get Ready to Adopt!</h1>
-                <p>The following people are in line for adoption</p>
+            <div className="adoption">
+                <div className="adopt-header">
+                <h1 >Get Ready to Adopt!</h1>
+                <h2>The following people are in line for adoption:</h2>
+                </div>
+                <div className="people-list">
                 <ul>
                     {this.context.people.map(person =>
                         <li key={this.context.people + Math.random()}>
@@ -102,12 +106,14 @@ export default class Adoption extends Component {
                         </li>
                     )}
                 </ul>
+                </div>
+               
                 {!this.state.currentUser && (
                     <AdoptForm add={this.addPerson}
                         queueLine={this.getInLine}
                     />
                 )}
-
+              
                 {this.state.currentUser && !this.state.userCanAdopt && (
                     <p>
                         Excellent! Please wait in line. When your name appears, you will be able to adopt a pet!
@@ -115,12 +121,9 @@ export default class Adoption extends Component {
                 )}
                 {this.state.userCanAdopt && <h2>Your turn!</h2>}
                 <Dog adopt={this.state.userCanAdopt}
-                    demoAdopt={this.adoptDog}
-                />
+                    demoAdopt={this.adoptDog}/>
                 <Cat adopt={this.state.userCanAdopt}
-                    demoAdopt={this.adoptCat}
-                />
-
+                    demoAdopt={this.adoptCat}/>
             </div>
         )
     }
